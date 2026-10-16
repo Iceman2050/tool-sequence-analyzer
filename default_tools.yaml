@@ -1,0 +1,53 @@
+# tools.yaml — declare a privilege level per tool.
+# Levels: read-low, read-sensitive, write-low, write-sensitive, admin
+# Any tool not listed falls back to default_level.
+
+default_level: read-low
+
+tools:
+  # ---- read-low: public / non-sensitive reads ----
+  web.search: read-low
+  web.fetch: read-low
+  fs.read: read-low
+  fs.list: read-low
+  calendar.list: read-low
+  weather.get: read-low
+  docs.search: read-low
+
+  # ---- read-sensitive: reads that can expose PII, secrets, or business data ----
+  db.query: read-sensitive
+  crm.get_contact: read-sensitive
+  crm.search: read-sensitive
+  email.search: read-sensitive
+  email.read: read-sensitive
+  secrets.read: read-sensitive
+  vault.read: read-sensitive
+  hr.get_employee: read-sensitive
+  billing.get_invoices: read-sensitive
+
+  # ---- write-low: harmless writes ----
+  notes.write: write-low
+  calendar.create: write-low
+  notify.send: write-low
+  tasks.create: write-low
+
+  # ---- write-sensitive: writes with money, messaging, or data-egress impact ----
+  db.write: write-sensitive
+  db.delete: write-sensitive
+  storage.put: write-sensitive
+  email.send: write-sensitive
+  sms.send: write-sensitive
+  crm.update: write-sensitive
+  billing.charge: write-sensitive
+  billing.refund: write-sensitive
+  deploy.trigger: write-sensitive
+
+  # ---- admin: full-privilege operations ----
+  shell.exec: admin
+  shell.sudo: admin
+  iam.grant: admin
+  iam.create_role: admin
+  users.create: admin
+  users.delete: admin
+  network.open_port: admin
+  k8s.apply: admin

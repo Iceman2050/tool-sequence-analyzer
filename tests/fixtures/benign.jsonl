@@ -1,0 +1,6 @@
+{"ts": "2026-10-16T10:00:00", "tool": "db.query", "args": {"system": "warehouse", "q": "select count(*) from orders"}, "result_summary": "42 rows"}
+{"ts": "2026-10-16T10:00:20", "tool": "db.write", "args": {"system": "warehouse", "table": "daily_cache"}, "result_summary": "cache row written"}
+{"ts": "2026-10-16T10:01:00", "tool": "web.search", "args": {"q": "quarterly revenue benchmarks"}, "result_summary": "5 results"}
+{"ts": "2026-10-16T10:02:00", "tool": "notes.write", "args": {"path": "/tmp/brief.txt"}, "result_summary": "brief saved"}
+{"ts": "2026-10-16T10:03:00", "tool": "email.search", "args": {"system": "mail", "q": "invoice"}, "result_summary": "2 messages found"}
+{"ts": "2026-10-16T10:04:00", "tool": "notes.write", "args": {"path": "/tmp/invoices.txt"}, "result_summary": "notes saved"}
